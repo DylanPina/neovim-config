@@ -59,4 +59,10 @@ M.nvim_tree = {
   }
 }
 
+M.symbols_outline = {
+  n = {
+    ["<leader>o"] = {":SymbolsOutline<CR>"}
+  }
+}
+
 return M

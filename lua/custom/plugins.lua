@@ -88,7 +88,7 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
-    lazy=false,
+    event="VeryLazy",
     config = function()
       require("treesitter-context").setup()
     end
@@ -118,6 +118,15 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     event = "VeryLazy"
+
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("symbols-outline").setup()
+    end
   }
 }
+
 return plugins
