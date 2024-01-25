@@ -81,7 +81,8 @@ local plugins = {
         "tsx",
         "go",
         "rust",
-        "css"
+        "css",
+        "prisma"
       }
       return opts
     end
