@@ -126,6 +126,10 @@ local plugins = {
     config = function()
       require("symbols-outline").setup()
     end
+  },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy"
   }
 }
 
