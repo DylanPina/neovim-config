@@ -128,12 +128,19 @@ local plugins = {
       require("symbols-outline").setup()
     end
   },
+  -- {
+  --   "github/copilot.vim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true;
+  --     vim.g.copilot_assume_mapped = true;
+  --   end
+  -- },
   {
-    "github/copilot.vim",
-    event = "VeryLazy",
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
     config = function()
-      vim.g.copilot_no_tab_map = true;
-      vim.g.copilot_assume_mapped = true;
+      vim.g.codeium_no_map_tab = false
     end
   },
   {
