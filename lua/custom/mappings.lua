@@ -15,6 +15,10 @@ M.custom = {
   n = {
     -- Select entire file
     ["<C-a>"] = {"ggVG"},
+    -- Quit
+    ["<C-q>"] = {":q<CR>"},
+    -- Quit all and save
+    ["<C-z>"] = {":wqa<CR>"},
   }
 }
 
