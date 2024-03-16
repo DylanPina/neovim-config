@@ -155,7 +155,15 @@ local plugins = {
     opts = function()
       return require "custom.configs.bufferline"
     end
-  }
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = function()
+      return require "custom.configs.lualine"
+    end
+  },
 }
 
 return plugins
