@@ -52,6 +52,21 @@ M.buffer = {
   }
 }
 
+M.bufferline = {
+  n = {
+    ["<leader>bp"] = {":BufferLineTogglePin<CR>"},
+    ["<leader>bP"] = {":BufferLineGroupClose ungrouped<CR>"},
+    ["<leader>bpc"] = {":BufferLinePickClose<CR>"},
+    ["<leader>bo"] = {":BufferLineCloseOthers<CR>"},
+    ["<leader>br"] = {":BufferLineCloseRight<CR>"},
+    ["<leader>bl"] = {":BufferLineCloseLeft<CR>"},
+    ["<S-Tab>"] = {":BufferLineCyclePrev<CR>"},
+    ["<Tab>"] = {":BufferLineCycleNext<CR>"},
+    ["[b"] = {":BufferLineCyclePrev<CR>"},
+    ["]b"] = {":BufferLineCycleNext<CR>"}
+  }
+}
+
 M.nvim_tree = {
   n = {
     -- Collapse directories recursively

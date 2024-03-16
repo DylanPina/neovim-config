@@ -147,6 +147,14 @@ local plugins = {
     "folke/trouble.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.bufferline"
+    end
   }
 }
 
