@@ -150,10 +150,10 @@ local plugins = {
   },
   {
     "akinsho/bufferline.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
-    opts = function()
-      return require "custom.configs.bufferline"
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require "custom.configs.bufferline"
     end
   },
   {
@@ -164,6 +164,10 @@ local plugins = {
       return require "custom.configs.lualine"
     end
   },
+  {
+    "famiu/bufdelete.nvim",
+    event = "VeryLazy",
+  }
 }
 
 return plugins

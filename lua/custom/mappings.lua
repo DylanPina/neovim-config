@@ -58,6 +58,10 @@ M.buffer = {
 
 M.bufferline = {
   n = {
+    ["<leader>x"] = {":Bdelete<CR>"},
+    ["<leader>bD"] = {":BufferLineCloseLeft<CR>"},
+    ["<leader>bL"] = {":BufferLineCloseRight<CR><cmd>BufferLineCloseLeft<CR>"},
+    ["<leader>bM"] = {":BufferLineCloseRight<CR><cmd>BufferLineCloseLeft<CR><cmd>enew<CR>"},
     ["<leader>bp"] = {":BufferLineTogglePin<CR>"},
     ["<leader>bP"] = {":BufferLineGroupClose ungrouped<CR>"},
     ["<leader>bpc"] = {":BufferLinePickClose<CR>"},

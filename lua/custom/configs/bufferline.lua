@@ -1,8 +1,8 @@
-local opts = {
+require("bufferline").setup({
   options = {
-    themeable = true,
+    numbers = "ordinal",
     always_show_bufferline = true,
-    max_name_length = 30,
+    close_command = require('bufdelete').bufdelete,
     offsets = {
       {
         filetype = "NvimTree",
@@ -12,5 +12,4 @@ local opts = {
       },
     },
   },
-}
-return opts
+})
