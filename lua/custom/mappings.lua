@@ -56,25 +56,6 @@ M.buffer = {
   }
 }
 
-M.bufferline = {
-  n = {
-    ["<leader>x"] = {":Bdelete<CR>"},
-    ["<leader>bD"] = {":BufferLineCloseLeft<CR>"},
-    ["<leader>bL"] = {":BufferLineCloseRight<CR><cmd>BufferLineCloseLeft<CR>"},
-    ["<leader>bM"] = {":BufferLineCloseRight<CR><cmd>BufferLineCloseLeft<CR><cmd>enew<CR>"},
-    ["<leader>bp"] = {":BufferLineTogglePin<CR>"},
-    ["<leader>bP"] = {":BufferLineGroupClose ungrouped<CR>"},
-    ["<leader>bpc"] = {":BufferLinePickClose<CR>"},
-    ["<leader>bo"] = {":BufferLineCloseOthers<CR>"},
-    ["<leader>br"] = {":BufferLineCloseRight<CR>"},
-    ["<leader>bl"] = {":BufferLineCloseLeft<CR>"},
-    ["<S-Tab>"] = {":BufferLineCyclePrev<CR>"},
-    ["<Tab>"] = {":BufferLineCycleNext<CR>"},
-    ["[b"] = {":BufferLineCyclePrev<CR>"},
-    ["]b"] = {":BufferLineCycleNext<CR>"}
-  }
-}
-
 M.nvim_tree = {
   n = {
     -- Collapse directories recursively
