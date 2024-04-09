@@ -1,6 +1,5 @@
-local M = {}
-
 -- <C> -> Ctrl
+-- <CR> -> Enter
 -- <leader> -> Space
 -- <A> -> alt
 -- <S> -> shift
@@ -11,14 +10,16 @@ local M = {}
 -- <kPlus> -> Keypad Plus (+)
 -- <kMinus> -> Keypad Minus (-)
 
+local M = {}
+
 M.custom = {
   n = {
     -- Select entire file
     ["<C-a>"] = {"ggVG"},
     -- Quit
     ["<C-q>"] = {":q<CR>"},
-    -- Quit all and save
-    ["<C-z>"] = {":wqa<CR>"},
+    -- Quit all and save forced
+    ["<C-z>"] = {":wqa!<CR>"},
   }
 }
 
@@ -91,6 +92,38 @@ M.codeium = {
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
     }
   }
+}
+
+M.spectre = {
+  n = {
+    ["<leader>S"] = {
+      "<cmd>lua require('spectre').open()<cr>",
+      "Spectre",
+      {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    },
+    ["<leader>sw"] = {
+      "<cmd>lua require('spectre').open_visual()<cr>",
+      "Spectre Visual",
+      {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    },
+    ["<leader>sp"] = {
+      "<cmd>lua require('spectre').open_file_search()<cr>",
+      "Spectre File",
+      {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    }
+  },
+  v = {
+    ["<leader>sw"] = {
+      "<esc><cmd>lua require('spectre').open_visual()<cr>",
+      "Spectre Visual",
+      {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    },
+    ["<leader>sp"] = {
+      "<esc><cmd>lua require('spectre').open_file_search()<cr>",
+      "Spectre File",
+      {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    }
+  },
 }
 
 return M

@@ -159,6 +159,10 @@ local plugins = {
   {
     "famiu/bufdelete.nvim",
     event = "VeryLazy",
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    event = "VeryLazy",
   }
 }
 
