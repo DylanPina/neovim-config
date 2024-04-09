@@ -47,6 +47,8 @@ local plugins = {
         "typescript-language-server",
         "eslint-lsp",
         "prettier",
+        "clangd",
+        "clang-format",
       },
     },
   },
@@ -140,7 +142,7 @@ local plugins = {
     "Exafunction/codeium.vim",
     event = "BufEnter",
     config = function()
-      vim.g.codeium_no_map_tab = false
+      vim.g.codeium_no_map_tab = true
     end
   },
   {
