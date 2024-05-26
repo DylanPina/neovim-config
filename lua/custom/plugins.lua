@@ -41,7 +41,6 @@ local plugins = {
         "js-debugger",
         "black",
         "debugpy",
-        "mypy",
         "ruff",
         "pyright",
         "typescript-language-server",
@@ -165,7 +164,26 @@ local plugins = {
   {
     'nvim-pack/nvim-spectre',
     event = "VeryLazy",
-  }
+  },
+  {
+    'fei6409/log-highlight.nvim',
+    config = function()
+      require('log-highlight').setup {}
+    end,
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("flash").setup({
+        modes = {
+          char = {
+            enabled = false,
+          },
+        },
+      })
+    end,
+  },
 }
 
 return plugins

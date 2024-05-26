@@ -96,7 +96,7 @@ M.codeium = {
 
 M.spectre = {
   n = {
-    ["<leader>S"] = {
+    ["<leader>ss"] = {
       "<cmd>lua require('spectre').open()<cr>",
       "Spectre",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
@@ -106,7 +106,7 @@ M.spectre = {
       "Spectre Visual",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
     },
-    ["<leader>sp"] = {
+    ["<leader>s."] = {
       "<cmd>lua require('spectre').open_file_search()<cr>",
       "Spectre File",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
@@ -118,10 +118,27 @@ M.spectre = {
       "Spectre Visual",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
     },
-    ["<leader>sp"] = {
+    ["<leader>s."] = {
       "<esc><cmd>lua require('spectre').open_file_search()<cr>",
       "Spectre File",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+    }
+  },
+}
+
+M.flash = {
+  n = {
+    ["<leader>fs"] = {
+      function() require("flash").jump() end,
+      "Start flash search"
+    },
+    ["<leader>ft"] = {
+      function() require("flash").treesitter() end,
+      "Start flash treesitter"
+    },
+    ["<leader>fT"] = {
+      function() require("flash").treesitter_search() end,
+      "Start flash treesitter"
     }
   },
 }
