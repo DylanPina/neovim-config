@@ -46,6 +46,7 @@ local plugins = {
         "pyright",
         "typescript-language-server",
         "eslint-lsp",
+        "prettierd",
         "prettier",
         "clangd",
         "clang-format",
