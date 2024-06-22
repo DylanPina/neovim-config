@@ -28,6 +28,14 @@ local plugins = {
     end,
   },
   {
+    "dreamsofcode-io/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end
+  },
+  {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     opts = function()
@@ -51,6 +59,7 @@ local plugins = {
         "clangd",
         "clang-format",
         "lua-language-server",
+        "gopls",
       },
     },
   },
@@ -150,7 +159,9 @@ local plugins = {
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("trouble").setup { }
+    end
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -185,6 +196,16 @@ local plugins = {
           },
         },
       })
+    end,
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
     end,
   },
 }
