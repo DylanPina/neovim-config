@@ -23,6 +23,12 @@ M.custom = {
   }
 }
 
+M.lsp = {
+  n = {
+    ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename" },
+  }
+}
+
 M.dap = {
   plugin = true,
   n = {
