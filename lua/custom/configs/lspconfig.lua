@@ -92,7 +92,6 @@ lspconfig.gopls.setup({
   root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
-      gofumpt = true,
       completeUnimported = true,
       usePlaceholders = true,
       analyses = {
@@ -100,4 +99,9 @@ lspconfig.gopls.setup({
       }
     }
   }
+})
+
+lspconfig.terraformls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
 })
