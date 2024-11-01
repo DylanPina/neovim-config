@@ -35,7 +35,7 @@ lspconfig.pyright.setup({
   },
 })
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
@@ -60,7 +60,6 @@ lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
-
 
 lspconfig.emmet_ls.setup({
     on_attach = on_attach,
@@ -102,6 +101,11 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.terraformls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })

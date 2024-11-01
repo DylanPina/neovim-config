@@ -59,7 +59,6 @@ local plugins = {
         "clangd",
         "clang-format",
         "lua-language-server",
-        "luaformatter",
         "gopls",
         "terraformls"
       },
