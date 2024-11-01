@@ -59,6 +59,7 @@ local plugins = {
         "clangd",
         "clang-format",
         "lua-language-server",
+        "luaformatter",
         "gopls",
         "terraformls"
       },
@@ -217,6 +218,37 @@ local plugins = {
       vim.g.terraform_fmt_on_save = 1
     end,
   },
+  { "catppuccin/nvim",
+    name = "catppuccin",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true,
+        show_end_of_buffer = false,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          treesitter_context = true,
+          ts_rainbow = true
+        },
+      })
+    end
+  },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+    opts = {
+        enabled = true,  -- if you want to enable the plugin
+        message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+        date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+        virtual_text_column = 1,  -- virtual text start column, check Start virtual text at column section for more options
+    },
+  }
 }
 
 return plugins
