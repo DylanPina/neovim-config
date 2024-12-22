@@ -109,3 +109,12 @@ lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
+
+lspconfig.dockerls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "docker-langserver", "--stdio" },
+  filetypes = { "dockerfile" },
+  root_dir = require('lspconfig').util.root_pattern("Dockerfile"),
+  single_file_support = true,
+})

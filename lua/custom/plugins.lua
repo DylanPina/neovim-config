@@ -60,7 +60,8 @@ local plugins = {
         "clang-format",
         "lua-language-server",
         "gopls",
-        "terraformls"
+        "terraformls",
+        "dockerfile-language-server"
       },
     },
   },
