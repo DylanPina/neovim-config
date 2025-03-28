@@ -143,21 +143,21 @@ local plugins = {
       require("symbols-outline").setup()
     end
   },
-  -- {
-  --   "github/copilot.vim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     vim.g.copilot_no_tab_map = true;
-  --     vim.g.copilot_assume_mapped = true;
-  --   end
-  -- },
   {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
+    "github/copilot.vim",
+    event = "VeryLazy",
     config = function()
-      vim.g.codeium_no_map_tab = true
+      vim.g.copilot_no_tab_map = true;
+      vim.g.copilot_assume_mapped = true;
     end
   },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   event = "BufEnter",
+  --   config = function()
+  --     vim.g.codeium_no_map_tab = true
+  --   end
+  -- },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",

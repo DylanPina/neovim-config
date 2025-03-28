@@ -76,30 +76,30 @@ M.symbols_outline = {
   }
 }
 
--- M.copilot = {
---   i = {
---     ["<C-l>"] = {
---       function()
---         vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
---       end,
---       "Copilot Accept",
---       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
---     }
---   }
--- }
-
-M.codeium = {
+M.copilot = {
   i = {
     ["<C-l>"] = {
       function()
-        vim.fn.feedkeys(vim.fn['codeium#Accept'](), '')
+        vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
       end,
-      "Codeium Accept",
+      "Copilot Accept",
       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
     }
   }
 }
 
+-- M.codeium = {
+--   i = {
+--     ["<C-l>"] = {
+--       function()
+--         vim.fn.feedkeys(vim.fn['codeium#Accept'](), '')
+--       end,
+--       "Codeium Accept",
+--       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
+--     }
+--   }
+-- }
+--
 M.spectre = {
   n = {
     ["<leader>ss"] = {
