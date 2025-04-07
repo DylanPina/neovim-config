@@ -12,6 +12,7 @@
 
 local M = {}
 
+
 M.custom = {
   n = {
     -- Select entire file
@@ -57,10 +58,19 @@ M.dap_python = {
 M.buffer = {
   n = {
     -- Close all buffers
-    ["<leader>ba"] = {":%bdelete<CR>"},
+    ["<leader>ba"] = { ":%bdelete<CR>" },
     -- Close all but current buffer
-    ["<leader>bd"] = {":%bd|e#<CR>"},
-  }
+    ["<leader>bd"] = {
+      function()
+        local curwin = vim.api.nvim_get_current_win()
+        local curpos = vim.api.nvim_win_get_cursor(curwin)
+        -- Close all buffers except the current one
+        vim.cmd("%bd|e#")
+        vim.api.nvim_win_set_cursor(curwin, curpos)
+      end,
+      "Close other buffers without resetting cursor",
+    },
+  },
 }
 
 M.nvim_tree = {
