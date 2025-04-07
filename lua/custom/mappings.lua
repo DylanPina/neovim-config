@@ -24,6 +24,25 @@ M.custom = {
   }
 }
 
+M.telescope = {
+  n = {
+    -- Document symbols
+    ["<leader>ds"] = {
+      function()
+        require("telescope.builtin").lsp_document_symbols()
+      end,
+      "Document Symbols"
+    },
+    -- Workspace symbols
+    ["<leader>ws"] = {
+      function()
+        require("telescope.builtin").lsp_workspace_symbols()
+      end,
+      "Workspace Symbols"
+    },
+  }
+}
+
 M.lsp = {
   n = {
     ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename" },
