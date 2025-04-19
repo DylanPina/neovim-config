@@ -40,6 +40,12 @@ M.telescope = {
       end,
       "Workspace Symbols"
     },
+    ["<leader>fg"] = {
+      function()
+        require("telescope").extensions.live_grep_args.live_grep_args()
+      end,
+      "Live Grep (with args)"
+    }
   }
 }
 
