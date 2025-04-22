@@ -14,6 +14,12 @@ return {
     -- Load the colorscheme
     require('nord').set()
 
+    local transparent_status_line = function()
+      -- Allow override for status line
+      vim.api.nvim_set_hl(0, 'StatusLine', { fg = 'NONE', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = 'NONE', bg = 'NONE' })
+    end
+
     -- Toggle background transparency
     local bg_transparent = true
 
@@ -21,8 +27,14 @@ return {
       bg_transparent = not bg_transparent
       vim.g.nord_disable_background = bg_transparent
       vim.cmd [[colorscheme nord]]
+
+      if bg_transparent then
+        transparent_status_line()
+      end
     end
 
     vim.keymap.set('n', '<leader>bg', toggle_transparency, { noremap = true, silent = true })
+
+    transparent_status_line()
   end,
 }

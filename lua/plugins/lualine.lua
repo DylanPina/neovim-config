@@ -37,10 +37,14 @@ return {
       cond = hide_in_width,
     }
 
+    nord = require 'lualine.themes.nord'
+    nord.normal.c.bg = 'none'
+    nord.inactive.c.bg = 'none'
+
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'nord', -- Set theme based on environment variable
+        theme = nord, -- Set theme based on environment variable
         -- Some useful glyphs:
         -- https://www.nerdfonts.com/cheat-sheet
         --        
