@@ -31,6 +31,7 @@ require('lazy').setup {
   require 'plugins.comment',
   require 'plugins.noice',
   require 'plugins.notify',
+  require 'plugins.toggleterm',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

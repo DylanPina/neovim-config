@@ -37,7 +37,7 @@ return {
       cond = hide_in_width,
     }
 
-    nord = require 'lualine.themes.nord'
+    local nord = require 'lualine.themes.nord'
     nord.normal.c.bg = 'none'
     nord.inactive.c.bg = 'none'
 

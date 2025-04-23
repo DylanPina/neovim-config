@@ -75,3 +75,14 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- ToggleTerm
+vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=float<CR>', opts)
+
+-- Exit terminal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
+
+-- Window navigation while in terminal
+vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w>j]], opts)
+vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w>k]], opts)
+vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]], opts)
