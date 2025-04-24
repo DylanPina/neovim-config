@@ -86,3 +86,11 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w>j]], opts)
 vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w>k]], opts)
 vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]], opts)
+
+-- Copilot
+vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
+  desc = 'Accept Copilot suggestion',
+  expr = true,
+  replace_keycodes = false,
+  silent = true,
+})
