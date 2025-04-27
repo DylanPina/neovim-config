@@ -29,7 +29,7 @@ return {
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         separator_style = { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
-        always_show_bufferline = true,
+        always_show_bufferline = false,
         show_tab_indicators = false,
         indicator = {
           -- icon = '▎', -- this should be omitted if indicator style is not 'icon'
@@ -40,6 +40,27 @@ return {
         maximum_padding = 5,
         maximum_length = 15,
         sort_by = 'insert_at_end',
+        name_formatter = function(buf)
+          -- 1. Base filename
+          local name = vim.fn.fnamemodify(buf.path, ':t')
+
+          -- 2. Count how many listed buffers share that name
+          local count = 0
+          for _, b in ipairs(vim.fn.getbufinfo { buflisted = true }) do
+            if vim.fn.fnamemodify(b.name, ':t') == name then
+              count = count + 1
+            end
+          end
+
+          -- 3. If it’s a duplicate, prefix with its parent folder
+          if count > 1 then
+            local parent = vim.fn.fnamemodify(buf.path, ':h:t')
+            return parent .. '/' .. name
+          end
+
+          -- 4. Otherwise just show the filename
+          return name
+        end,
       },
       highlights = {
         separator = {
