@@ -94,3 +94,7 @@ vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
   replace_keycodes = false,
   silent = true,
 })
+
+-- Nvim Tree
+vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts) -- toggle nvimtree
+vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', opts) -- toggle nvimtree
