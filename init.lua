@@ -33,6 +33,7 @@ require('lazy').setup {
   require 'plugins.copilot',
   require 'plugins.nvim-tree',
   require 'plugins.catppuccin',
+  require 'plugins.nvim-surround',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
