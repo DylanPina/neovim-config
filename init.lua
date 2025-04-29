@@ -35,6 +35,7 @@ require('lazy').setup {
   require 'plugins.catppuccin',
   require 'plugins.nvim-surround',
   require 'plugins.trouble',
+  require 'plugins.nvim-treesitter-context',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
