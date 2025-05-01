@@ -50,29 +50,42 @@ return {
       dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
       dashboard.button('r', '  Recently used files', telescope.oldfiles),
       dashboard.button('t', '  Find text', telescope.live_grep),
-      dashboard.button('c', '  Configuration', ':e ~/.config/nvim/init.lua<CR>'),
+      dashboard.button('c', '  Configuration', ':ex ~/.config/nvim/init.lua<CR>'),
       dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
     }
 
-    -- build MRU list WITH icons
+    -- build MRU list WITH icons, but only for actual files on disk
     local mru_count = 5
     local mru_buttons = {}
-    for i, filepath in ipairs(vim.v.oldfiles) do
-      if i > mru_count then
-        break
+    local seen = 0
+    local max_name_len = 50
+
+    for _, filepath in ipairs(vim.v.oldfiles) do
+      if vim.fn.filereadable(filepath) == 1 then
+        seen = seen + 1
+        if seen > mru_count then
+          break
+        end
+
+        local filename = vim.fn.fnamemodify(filepath, ':t')
+        local ext = vim.fn.fnamemodify(filepath, ':e')
+        local icon, icon_hl = devicons.get_icon(filename, ext, { default = true })
+
+        -- truncate here:
+        local short
+        do
+          local raw = vim.fn.fnamemodify(filepath, ':~:.')
+          if vim.fn.strdisplaywidth(raw) > max_name_len then
+            raw = '…' .. raw:sub(-max_name_len)
+          end
+          short = raw
+        end
+
+        local txt = string.format('%s  %s', icon, short)
+        local btn = dashboard.button(tostring(seen), txt, ':e ' .. filepath .. '<CR>')
+        btn.opts.hl = icon_hl
+        table.insert(mru_buttons, btn)
       end
-
-      local filename = vim.fn.fnamemodify(filepath, ':t')
-      local ext = vim.fn.fnamemodify(filepath, ':e')
-      local icon, icon_hl = devicons.get_icon(filename, ext, { default = true })
-      local short = vim.fn.fnamemodify(filepath, ':~:.')
-      local txt = string.format('%s  %s', icon, short)
-
-      local btn = dashboard.button(tostring(i), txt, ':e ' .. filepath .. '<CR>')
-      -- apply the icon’s highlight group
-      btn.opts.hl = icon_hl
-
-      table.insert(mru_buttons, btn)
     end
 
     dashboard.section.mru = {
@@ -110,7 +123,7 @@ return {
     dashboard.config.opts = dashboard.config.opts or {}
     dashboard.config.opts.width = max_width
 
-    for _, section in ipairs { dashboard.section.buttons, dashboard.section.mru } do
+    for _, section in ipairs { dashboard.section.mru } do
       for _, item in ipairs(section.val) do
         if item.type == 'button' then
           item.opts.width = max_width

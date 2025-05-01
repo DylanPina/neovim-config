@@ -121,3 +121,6 @@ vim.keymap.set('n', '<leader>tL', '<cmd>Trouble loclist toggle<cr>', {
 vim.keymap.set('n', '<leader>tQ', '<cmd>Trouble qflist toggle<cr>', {
   desc = 'Quickfix List (Trouble)',
 })
+
+-- Alpha
+vim.keymap.set('n', '<leader>a', '<cmd>Alpha<cr>', { desc = 'Open Alpha dashboard' }) -- Alpha
