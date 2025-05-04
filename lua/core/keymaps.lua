@@ -97,6 +97,12 @@ vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
   replace_keycodes = false,
   silent = true,
 })
+vim.keymap.set('n', '<leader>ce', '<cmd>Copilot enable<cr>', {
+  desc = 'Enable Copilot',
+})
+vim.keymap.set('n', '<leader>cd', '<cmd>Copilot disable<cr>', {
+  desc = 'Disable Copilot',
+})
 
 -- Nvim Tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts) -- toggle nvimtree
