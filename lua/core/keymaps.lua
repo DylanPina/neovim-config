@@ -42,8 +42,8 @@ vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
 vim.keymap.set('n', '<leader>bn', '<cmd> enew <CR>', opts) -- new buffer
-vim.keymap.set('n', '<leader>bda', ':%bd<CR>', opts) -- delete all buffers
-vim.keymap.set('n', '<leader>bdo', ':%bd | e# | bd#<CR>', opts) -- delete other buffers
+vim.keymap.set('n', '<leader>bda', ':%bd!<CR>', opts) -- delete all buffers
+vim.keymap.set('n', '<leader>bdo', ':%bd | e# | bd!#<CR>', opts) -- delete other buffers
 
 -- Window management
 vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
@@ -130,3 +130,6 @@ vim.keymap.set('n', '<leader>tQ', '<cmd>Trouble qflist toggle<cr>', {
 
 -- Alpha
 vim.keymap.set('n', '<leader>a', '<cmd>Alpha<cr>', { desc = 'Open Alpha dashboard' }) -- Alpha
+
+-- Oil
+vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory in Oil' })
