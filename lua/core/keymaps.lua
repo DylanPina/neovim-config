@@ -133,3 +133,6 @@ vim.keymap.set('n', '<leader>a', '<cmd>Alpha<cr>', { desc = 'Open Alpha dashboar
 
 -- Oil
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory in Oil' })
+
+-- Git fugitive
+vim.keymap.set('n', '<leader>gs', ':G<CR>', { desc = 'Git status' })
