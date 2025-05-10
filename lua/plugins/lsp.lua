@@ -200,6 +200,7 @@ return {
       terraformls = {},
       jsonls = {},
       yamlls = {},
+      eslint = {},
 
       lua_ls = {
         -- cmd = {...},
