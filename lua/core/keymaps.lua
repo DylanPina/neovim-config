@@ -135,4 +135,7 @@ vim.keymap.set('n', '<leader>a', '<cmd>Alpha<cr>', { desc = 'Open Alpha dashboar
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory in Oil' })
 
 -- Git fugitive
-vim.keymap.set('n', '<leader>gs', ':G<CR>', { desc = 'Git status' })
+vim.keymap.set('n', '<leader>gs', ':G<CR>', { desc = 'Git status', silent = true })
+vim.keymap.set('n', '<leader>ga', ':G add -A<CR>', { desc = 'Git add all', silent = true })
+vim.keymap.set('n', '<leader>gc', ':G commit<CR>', { desc = 'Git commit', silent = true })
+vim.keymap.set('n', '<leader>gu', ':Git reset<CR>', { desc = 'Git Unstage All', silent = true })
