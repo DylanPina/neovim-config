@@ -50,18 +50,19 @@ return {
       dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
       dashboard.button('r', '  Recently used files', telescope.oldfiles),
       dashboard.button('t', '  Find text', telescope.live_grep),
-      dashboard.button('c', '  Configuration', ':ex ~/.config/nvim/init.lua<CR>'),
       dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
     }
 
-    -- build MRU list WITH icons, but only for actual files on disk
-    local mru_count = 5
+    -- build MRU list WITH icons, but only for actual files on disk and under cwd
+    local mru_count = 8
     local mru_buttons = {}
     local seen = 0
     local max_name_len = 50
+    local project_root = vim.loop.cwd()
 
     for _, filepath in ipairs(vim.v.oldfiles) do
-      if vim.fn.filereadable(filepath) == 1 then
+      -- only project files, and only real files
+      if filepath:sub(1, #project_root) == project_root and vim.fn.filereadable(filepath) == 1 then
         seen = seen + 1
         if seen > mru_count then
           break
@@ -71,17 +72,13 @@ return {
         local ext = vim.fn.fnamemodify(filepath, ':e')
         local icon, icon_hl = devicons.get_icon(filename, ext, { default = true })
 
-        -- truncate here:
-        local short
-        do
-          local raw = vim.fn.fnamemodify(filepath, ':~:.')
-          if vim.fn.strdisplaywidth(raw) > max_name_len then
-            raw = '…' .. raw:sub(-max_name_len)
-          end
-          short = raw
+        -- shorten path relative to cwd, elide front if too long
+        local raw = vim.fn.fnamemodify(filepath, ':.:h') .. '/' .. filename
+        if vim.fn.strdisplaywidth(raw) > max_name_len then
+          raw = '…' .. raw:sub(-max_name_len)
         end
 
-        local txt = string.format('%s  %s', icon, short)
+        local txt = string.format('%s  %s', icon, raw)
         local btn = dashboard.button(tostring(seen), txt, ':e ' .. filepath .. '<CR>')
         btn.opts.hl = icon_hl
         table.insert(mru_buttons, btn)
@@ -90,10 +87,9 @@ return {
 
     dashboard.section.mru = {
       type = 'group',
-      val = vim.list_extend({ { type = 'text', val = 'Recent Files', opts = { hl = 'Title', position = 'center' } } }, mru_buttons),
+      val = vim.list_extend({ { type = 'text', val = 'Recent Project Files', opts = { hl = 'Title', position = 'center' } } }, mru_buttons),
       opts = { position = 'center' },
     }
-
     -- stitch together the layout
     dashboard.config.layout = {
       { type = 'padding', val = 2 },
