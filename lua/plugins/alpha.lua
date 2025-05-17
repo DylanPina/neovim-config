@@ -54,7 +54,7 @@ return {
     }
 
     -- build MRU list WITH icons, but only for actual files on disk and under cwd
-    local mru_count = 8
+    local mru_count = 5
     local mru_buttons = {}
     local seen = 0
     local max_name_len = 50
