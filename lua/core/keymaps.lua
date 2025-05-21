@@ -66,6 +66,11 @@ vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
 -- Toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
 
+-- Set conceallevel
+vim.keymap.set('n', '<leader>cl0', '<cmd>set conceallevel=0<CR>', opts) -- show all characters
+vim.keymap.set('n', '<leader>cl1', '<cmd>set conceallevel=1<CR>', opts) -- show some characters
+vim.keymap.set('n', '<leader>cl2', '<cmd>set conceallevel=2<CR>', opts) -- hide all characters
+
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)

@@ -37,6 +37,7 @@ require('lazy').setup {
   require 'plugins.nvim-treesitter-context',
   require 'plugins.alpha',
   require 'plugins.oil',
+  require 'plugins.obsidian',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
