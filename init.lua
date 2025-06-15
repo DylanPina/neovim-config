@@ -38,6 +38,7 @@ require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.oil',
   require 'plugins.obsidian',
+  require 'plugins.nvim-conda',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
