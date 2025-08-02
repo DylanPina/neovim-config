@@ -39,6 +39,9 @@ require('lazy').setup {
   require 'plugins.oil',
   require 'plugins.obsidian',
   require 'plugins.nvim-conda',
+  require 'plugins.rust',
+  require 'plugins.rust-tools',
+  require 'plugins.dap',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
