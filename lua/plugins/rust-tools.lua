@@ -18,9 +18,7 @@ return {
       server = {
         settings = {
           ['rust-analyzer'] = {
-            checkOnSave = {
-              command = 'clippy',
-            },
+            checkOnSave = true,
             inlayHints = {
               bindingModeHints = { enable = true },
               closureReturnTypeHints = { enable = true },
