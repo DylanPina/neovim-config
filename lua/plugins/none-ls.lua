@@ -19,6 +19,7 @@ return {
         'checkmake', -- linter for Makefiles
         'ruff', -- Python linter and formatter
         'gofumpt', -- Go formatter
+        'clang_format', -- C/C++ formatter
       },
       automatic_installation = true,
     }
@@ -30,6 +31,7 @@ return {
       formatting.shfmt.with { args = { '-i', '4' } },
       formatting.terraform_fmt,
       formatting.gofumpt,
+      formatting.clang_format,
       require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
       require 'none-ls.formatting.ruff_format',
     }
