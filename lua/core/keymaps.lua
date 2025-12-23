@@ -147,3 +147,8 @@ vim.keymap.set('n', '<leader>gs', ':G<CR>', { desc = 'Git status', silent = true
 vim.keymap.set('n', '<leader>ga', ':G add -A<CR>', { desc = 'Git add all', silent = true })
 vim.keymap.set('n', '<leader>gc', ':G commit<CR>', { desc = 'Git commit', silent = true })
 vim.keymap.set('n', '<leader>gu', ':Git reset<CR>', { desc = 'Git Unstage All', silent = true })
+
+-- Nvim Notify
+vim.keymap.set('n', '<leader>nc', '<cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>', {
+  desc = 'Clear all notifications',
+})
